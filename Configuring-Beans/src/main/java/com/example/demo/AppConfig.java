@@ -22,8 +22,9 @@ public class AppConfig {
 	@Autowired
 	private List<Team> teams;
     
-	//scope default singleton
-	@Bean @Scope("prototype")
+	//scope default singleton 
+	@Scope("prototype") 
+	@Bean(initMethod="startGame", destroyMethod="endGame") 
     public Game game(){
         BaseBallGame baseBallGame = new BaseBallGame(teams.get(0), teams.get(1));
         baseBallGame.setDataSource(dataSource);

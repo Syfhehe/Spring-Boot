@@ -1,5 +1,7 @@
 package com.example.demo.entity;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import javax.sql.DataSource;
 
 import org.springframework.stereotype.Component;
@@ -20,6 +22,16 @@ public class BaseBallGame implements Game  {
         this.awayTeam = awayTeam;
     }
 
+	@PostConstruct
+	public void startGame()	{
+		System.out.println("Start game.");
+	}
+	
+	@PreDestroy
+	public void endGame()	{
+		System.out.println("Game ended.");
+	}
+	
     public BaseBallGame() {
     }
 

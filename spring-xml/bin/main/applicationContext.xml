@@ -9,6 +9,13 @@
 
     <context:component-scan base-package="com.example.demo"></context:component-scan>
 
+	<bean id="nf" class="java.text.NumberFormat" factory-method="getCurrencyInstance"></bean>
+	
+	<bean id="factory" class="javax.xml.parsers.DocumentBuilderFactory" 
+		factory-method="newInstance"/>
+		
+	<bean class="javax.xml.parsers.DocumentBuilder" factory-bean="factory" factory-method="newDocumentBuilder"/>
+		
     <bean id="redSox" class="com.example.demo.entity.RedSox"></bean>
     <bean id="cubs" class="com.example.demo.entity.Cubs"></bean>
     
